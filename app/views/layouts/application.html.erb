@@ -9,8 +9,13 @@
   </head>
 
   <body class="container">
+    <%= render 'socials/nav'%>
   	<p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
+
     <%= yield %>
+    <footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
   </body>
 </html>
