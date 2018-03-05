@@ -3,7 +3,7 @@
 <div style="padding: 10px;padding-bottom: 35px;height: 100%;">
 
 <hr>
-      <h5 style="float: right;"><span class="glyphicon glyphicon-time" ></span> Post by <%= current_user.email%>, <%= post.created_at%>.</h5>
+      <h5 style="float: right;"><span class="glyphicon glyphicon-time" ></span> Post by <%= post.user.first_name%>, <%= post.created_at%>.</h5>
       <h2><%= post.title%></h2>
       <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
       <p><%= post.body%></p>

@@ -69,3 +69,4 @@ gem 'linkedin', '~> 1.1'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
+gem "figaro"

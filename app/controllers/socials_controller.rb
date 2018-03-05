@@ -10,8 +10,10 @@ class SocialsController < ApplicationController
 
 	 def create
 	 	@user = current_user
+	 	debugger
 	   @social = @user.socials.new(campaings_params)
 	   if @social.save
+	   	post_on_facebook(@user, @social)
 	   	redirect_to socials_path
 	   else
 	   	render 'new'

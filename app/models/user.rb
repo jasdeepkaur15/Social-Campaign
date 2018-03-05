@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_many :socials
+  has_many :socials, dependent: :destroy
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         :recoverable, :rememberable, :trackable, :omniauthable
 def self.from_omniauth(auth, signed_in_resource = nil)
   user = User.where(provider: auth.provider, uid: auth.uid).first
   if user.present?
@@ -43,28 +43,19 @@ def self.from_omniauth(auth, signed_in_resource = nil)
 
         user.save
       elsif auth.provider == "twitter" 
-        
+        debugger
           user.provider = auth.provider
-        user.uid = auth.uid
+          user.uid = auth.uid
           user.oauth_token = auth.credentials.token
-          
-          user.oauth_user_name = auth.extra.raw_info.name
+          user.first_name = auth.extra.raw_info.name
+          user.save
            end
     end    
   end
   return user
   end
   # For Twitter (save the session eventhough we redirect user to registration page first)
-  def self.new_with_session(params, session)
-    if session["devise.user_attributes"]
-      new(session["devise.user_attributes"]) do |user|
-        user.attributes = params
-        user.valid?
-      end
-    else
-      super
-    end  
-  end  
+  
   # For Twitter (disable password validation)
   def password_required?
     super && provider.blank?
