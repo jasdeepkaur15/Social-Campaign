@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SocialCampign</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'%>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
+    <title>SocialCampign</title>
   </head>
-
-  <body class="container">
+  <body class='container'>
     <%= render 'socials/nav'%>
-  	<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <p class='notice'></p>
+    <p class='alert'></p>
+    <%=yield%>
+    <strong> for html</strong>
+       hello this is the preview partial
+       <div style= "width:526px;">
+       <%= render 'socials/preview'%>
+       </div>
 
-    <%= yield %>
-    <footer class="container-fluid">
-  <p>Footer Text</p>
-</footer>
+
+
+    <footer class='container-fluid'>
+      <p>Footer Text</p>
+    </footer>
   </body>
 </html>

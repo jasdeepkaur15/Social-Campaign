@@ -1,5 +1,7 @@
 {
   "name": "SocialCampign",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "open-graph-scraper": "^3.1.5"
+  }
 }

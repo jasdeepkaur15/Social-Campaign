@@ -16,11 +16,11 @@
  
     <p>
       <%= f.label :title %><br>
-      <%= f.text_field :title ,class: "form-control" ,placeholder: "title.." %>
+      <%= f.text_field :title ,class: "form-control title" ,placeholder: "title.." %>
     </p>
     <p>
     <%= f.label :body %><br>
-    <%= f.text_area :body,class: "form-control",placeholder: "body.." %>
+    <%= f.text_area :body,class: "form-control body1",placeholder: "body.." %>
     </p>
     
 
@@ -28,8 +28,22 @@
     <p>
 
     <%= f.label :image %><br>
-    <%= f.file_field :image,class: "form-control" %>
+    <%= f.file_field :image,class: "form-control image" %>
     </p>
    
-    <%= f.submit "Save Post" ,class: "btn btn-primary"%>
+    <%= f.submit "submit" ,class: "btn btn-primary submitt"  %>
+
 <% end %>
+<script>
+    $(document).ready(function(){
+        $(".submitt").on("change",function(){
+        var title = $('.title').val();
+        var body1 = $('.body1').val();
+        var image = $('.image').val();
+        
+       alert(u)
+        });
+    });
+
+
+</script>

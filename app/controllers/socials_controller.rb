@@ -10,9 +10,12 @@ class SocialsController < ApplicationController
 
 	 def create
 	 	@user = current_user
-	 	debugger
+
 	   @social = @user.socials.new(campaings_params)
+	   @image= get_url(@social.body)
 	   if @social.save
+	   @image= get_url(@social.body)
+	   debugger
 	   	post_on_facebook(@user, @social)
 	   	redirect_to socials_path
 	   else
@@ -30,7 +33,6 @@ class SocialsController < ApplicationController
 
 	 def update
 	    if @social.update(campaings_params)
-	    	debugger
 	    	redirect_to socials_path
 	    else
 	    	render 'edit'
@@ -43,7 +45,6 @@ class SocialsController < ApplicationController
 	 end
 
 	 def edit
-	 	debugger
 	 end
 
 	def upvote

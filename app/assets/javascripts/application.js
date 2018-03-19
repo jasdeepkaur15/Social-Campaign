@@ -15,3 +15,32 @@
 //= require_tree
 //= require jquery
 //= require bootstrap-sprockets
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : 'your-app-id',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.12'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+document.getElementById('shareBtn').onclick = function() {
+	alert("hello")
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://www.nytimes.com',
+  }, function(response){});
+}
+
+</script>
